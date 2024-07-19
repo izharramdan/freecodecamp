@@ -37,8 +37,14 @@ window.onload = () => {
       input.type = "text";
       input.id = letter + number;
       input.ariaLabel = letter + number;
+      input.onchange = update;
       container.appendChild(input);
     })
   })
 }
 
+const update = event => {
+  const element = event.target;
+  const value = element.value.replace(/\s/g, "");
+
+}
