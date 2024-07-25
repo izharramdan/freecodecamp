@@ -27,7 +27,7 @@ const median = nums => {
 }
 
 const spreadsheetFunctions = {
-  
+  "": nums => nums,
   sum,
   average,
   median,
