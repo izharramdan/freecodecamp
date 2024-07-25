@@ -29,7 +29,14 @@ const median = nums => {
 const spreadsheetFunctions = {
   sum,
   average,
-  median
+  median,
+  even: nums => nums.filter(isEven),
+  someeven: nums => nums.some(isEven),
+
+  firsttwo: nums => nums.slice(0, 2),
+  lasttwo: nums => nums.slice(-2),
+  has2: nums => nums.includes(2),
+  increment: nums => nums.map(num => num + 1),
 }
 
 const applyFunction = str => {
@@ -54,7 +61,8 @@ const evalFormula = (x, cells) => {
   const rangeExpanded = x.replace(rangeRegex, (_match, char1, num1, char2, num2) => rangeFromString(num1, num2).map(addCharacters(char1)(char2)));
   const cellRegex = /[A-J][1-9][0-9]?/gi;
   const cellExpanded = rangeExpanded.replace(cellRegex, match => idToText(match.toUpperCase()));
-
+  const functionExpanded = applyFunction(cellExpanded);
+  return functionExpanded === x ? functionExpanded : evalFormula(functionExpanded, cells);
 }
 
 window.onload = () => {
@@ -84,6 +92,6 @@ const update = event => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value.startsWith('=')) {
-
+    element.value = evalFormula(value.slice(1), Array.from(document.getElementById("container").children));
   }
 }
