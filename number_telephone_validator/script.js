@@ -14,17 +14,14 @@ userInput.addEventListener("keydown", (e) => {
 
 function checkNumber() {
     const number = userInput.value;
-    const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    const regex = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/im;
 
     if (!number) {
-        alert("Please provide a phone number");
-        return;
-    }
-
-    if (regex.test(number)) {   
-        resultsDiv.innerHTML = `Valid US number: ${number}`;
+        alert("please provide a phone number")
+    } else if (regex.test(number)) {
+        resultsDiv.innerHTML = `Valid US number: ${number}`
     } else {
-        resultsDiv.innerHTML = `Invalid US number: ${number}`;
+        resultsDiv.innerHTML = `Invalid US number: ${number}`
     }
 }   
 
