@@ -132,6 +132,8 @@ class ShoppingCart {
       </div>
       `;
   }
+
+
 };
 
 const cart = new ShoppingCart();
@@ -148,5 +150,5 @@ const addToCartBtns = document.getElementsByClassName("add-to-cart-btn");
 cartBtn.addEventListener("click", () => {
   isCartShowing = !isCartShowing;
   showHideCartSpan.textContent = isCartShowing ? "Hide" : "Show";
-
+  cartContainer.style.display = isCartShowing ? "block" : "none";
 });
