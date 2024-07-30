@@ -121,7 +121,7 @@ class ShoppingCart {
     const currentProductCount = totalCountPerProduct[product.id];
     const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
 
-    currentProductCount > 1
+    currentProductCount > 1 
       ? currentProductCountSpan.textContent = `${currentProductCount}x`
       : productsContainer.innerHTML += `
       <div id="dessert${id}" class="product">
@@ -151,7 +151,10 @@ class ShoppingCart {
       this.items = [];
       this.total = 0;
       productsContainer.innerHTML = "";
-
+      totalNumberOfItems.textContent = 0;
+      cartSubTotal.textContent = 0;
+      cartTaxes.textContent = 0;
+      cartTotal.textContent = 0;
     }
   }
 
@@ -188,3 +191,4 @@ cartBtn.addEventListener("click", () => {
   showHideCartSpan.textContent = isCartShowing ? "Hide" : "Show";
   cartContainer.style.display = isCartShowing ? "block" : "none";
 });
+
