@@ -121,7 +121,7 @@ class ShoppingCart {
     const currentProductCount = totalCountPerProduct[product.id];
     const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
 
-    currentProductCount > 1
+    currentProductCount > 1 
       ? currentProductCountSpan.textContent = `${currentProductCount}x`
       : productsContainer.innerHTML += `
       <div id="dessert${id}" class="product">
@@ -147,7 +147,11 @@ class ShoppingCart {
       "Are you sure you want to clear all items from your shopping cart?"
     );
 
+    if (isCartCleared) {
+      this.items = [];
+      this.total = 0;
 
+    }
   }
 
   calculateTaxes(amount) {
