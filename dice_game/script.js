@@ -9,3 +9,4 @@ const rollDiceBtn = document.getElementById("roll-dice-btn");
 const keepScoreBtn = document.getElementById("keep-score-btn");
 const rulesBtn = document.getElementById("rules-btn");
 const rulesContainer = document.querySelector(".rules-container");
+const isModalShowing = false;
