@@ -27,3 +27,20 @@ rulesBtn.addEventListener("click", () => {
 
     }
 });
+
+rollDiceBtn.addEventListener("click", () => {
+    diceValuesArr = [];
+    rolls = 0;
+    round++;
+    roundElement.textContent = round;
+    rollsElement.textContent = rolls;
+    for (let i = 0; i < 5; i++) {
+        diceValuesArr.push(Math.floor(Math.random() * 6) + 1);
+    }
+    listOfAllDice.forEach((die, index) => {
+        die.classList.remove("active");
+        die.textContent = diceValuesArr[index];
+    });
+    rollDiceBtn.disabled = true;
+    keepScoreBtn.disabled = false;
+});
