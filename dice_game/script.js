@@ -29,18 +29,12 @@ rulesBtn.addEventListener("click", () => {
 });
 
 rollDiceBtn.addEventListener("click", () => {
+    let count = 0;
     diceValuesArr = [];
-    rolls = 0;
-    round++;
-    roundElement.textContent = round;
-    rollsElement.textContent = rolls;
-    for (let i = 0; i < 5; i++) {
-        diceValuesArr.push(Math.floor(Math.random() * 6) + 1);
+    while (diceValuesArr.length < 5) {
+        let random = Math.floor(Math.random() * 6) + 1;
+        diceValuesArr.push(random);
+        listOfAllDice[count++].textContent = random
+
     }
-    listOfAllDice.forEach((die, index) => {
-        die.classList.remove("active");
-        die.textContent = diceValuesArr[index];
-    });
-    rollDiceBtn.disabled = true;
-    keepScoreBtn.disabled = false;
 });
