@@ -28,13 +28,19 @@ rulesBtn.addEventListener("click", () => {
     }
 });
 
-rollDiceBtn.addEventListener("click", () => {
-    let count = 0;
+const rollDice = () => {
     diceValuesArr = [];
-    while (diceValuesArr.length < 5) {
-        let random = Math.floor(Math.random() * 6) + 1;
-        diceValuesArr.push(random);
-        listOfAllDice[count++].textContent = random
 
-    }
+    for (let i = 0; i < 5; i++) {
+        const randomDice = Math.floor(Math.random() * 6) + 1;
+        diceValuesArr.push(randomDice);
+    };
+
+    listOfAllDice.forEach((dice, index) => {
+        dice.textContent = diceValuesArr[index];
+    });
+};
+
+rollDiceBtn.addEventListener("click", () => {
+    rollDice();
 });
