@@ -147,10 +147,8 @@ const checkForStraights = (arr) => {
     updateRadioOption(3, 30);
   }
 updateRadioOption(5, 0);
-  console.log(keys)
+
 };
-let array = [1,5,4,3,2,3];
-let array2 = [1,2,4,3,6,3];
 
 checkForStraights(array)
 checkForStraights(array2)
